@@ -3,6 +3,7 @@ import WelcomeMessage from './WelcomeMessage';
 import Header from './components/Header';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
+import Counter from './components/Counter';
 import UserProfile from './components/UserProfile';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -18,6 +19,7 @@ function App() {
         <Header />
         <MainContent />
         <Footer />
+         <Counter />
          <UserProfile 
         name="Alice" 
         age="25" 
