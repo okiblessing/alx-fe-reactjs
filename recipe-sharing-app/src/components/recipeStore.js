@@ -1,4 +1,6 @@
 import create from 'zustand';
+import SearchBar from './components/SearchBar';
+import RecipeList from './components/RecipeList';
 
 // Define the types for the store
 interface Recipe {
