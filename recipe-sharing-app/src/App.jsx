@@ -4,7 +4,26 @@ import RecipeList from './components/RecipeList';
 import AddRecipeForm from './components/AddRecipeForm';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import RecipeDetails from './components/RecipeDetails';
-getComputedStyle
+import RecipeList from './components/RecipeList';
+import SearchBar from './components/SearchBar'; // SearchBar component
+
+
+
+
+const App = () => {
+  return (
+    <Router>
+      <div>
+        <SearchBar /> {/* Add the SearchBar component */}
+        <Routes>
+          <Route path="/recipes" element={<RecipeList />} />
+          {/* Add other routes as necessary */}
+        </Routes>
+      </div>
+    </Router>
+  );
+};
+
 
 
 const App = () => {
