@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import RecipeDetails from './components/RecipeDetails';
 import RecipeList from './components/RecipeList';
 import SearchBar from './components/SearchBar'; // SearchBar component
+import FavoritesList from './FavoritesList';
+import RecommendationsList from './RecommendationsList';
 
 
 
