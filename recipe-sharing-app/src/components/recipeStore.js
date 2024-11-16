@@ -1,26 +1,28 @@
-// src/store/recipeStore.js
-import create from 'zustand';
+import {create}from 'zustand';
 
-const useRecipeStore = create((set) => ({
-  recipes: [
-    // Example recipe, add more as needed
-    { id: 1, title: 'Spaghetti', description: 'A classic Italian dish' },
-    { id: 2, title: 'Tacos', description: 'A Mexican favorite' }
-  ],
+// Create the Zustand store with explicit typing
+const useRecipeStore = create<RecipeStore>((set) => ({
+  recipes: [],
   
+  // Action to add a new recipe
   addRecipe: (newRecipe) => set((state) => ({
-    recipes: [...state.recipes, newRecipe],
+    recipes: [...state.recipes, newRecipe]
   })),
-
-  deleteRecipe: (recipeId) => set((state) => ({
-    recipes: state.recipes.filter((recipe) => recipe.id !== recipeId),
+  
+  // Action to delete a recipe by ID
+  deleteRecipe: (id) => set((state) => ({
+    recipes: state.recipes.filter(recipe => recipe.id !== id)
   })),
-
+  
+  // Action to update an existing recipe
   updateRecipe: (updatedRecipe) => set((state) => ({
-    recipes: state.recipes.map((recipe) =>
+    recipes: state.recipes.map(recipe => 
       recipe.id === updatedRecipe.id ? updatedRecipe : recipe
-    ),
+    )
   })),
+  
+  // Action to set the initial recipes
+  setRecipes: (recipes) => set({ recipes })
 }));
 
 export default useRecipeStore;
