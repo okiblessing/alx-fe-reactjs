@@ -2,28 +2,23 @@ import create from 'zustand';
 import SearchBar from './components/SearchBar';
 import RecipeList from './components/RecipeList';
 
-// Define the types for the store
-interface Recipe {
-  id: number;
-  title: string;
-  description: string;
-  ingredients: string[]; // Assume ingredients is an array of strings
-}
-
-interface RecipeStore {
-  recipes: Recipe[];
-  searchTerm: string;
-  filteredRecipes: Recipe[];
-  
-  // Actions
-  setSearchTerm: (term: string) => void;
-  filterRecipes: () => void;
-  
-  addRecipe: (newRecipe: Recipe) => void;
-  deleteRecipe: (id: number) => void;
-  updateRecipe: (updatedRecipe: Recipe) => void;
-  setRecipes: (recipes: Recipe[]) => void;
-}
+const useRecipeStore = create(set => ({
+  recipes: [],  // Array to hold all recipes
+  favorites: [],  // Array to hold user's favorite recipe IDs
+  addFavorite: (recipeId) => set(state => ({
+    favorites: [...state.favorites, recipeId]
+  })),
+  removeFavorite: (recipeId) => set(state => ({
+    favorites: state.favorites.filter(id => id !== recipeId)
+  })),
+  recommendations: [],  // Array to hold recommended recipes
+  generateRecommendations: () => set(state => {
+    // Mock recommendation generation logic
+    const recommended = state.recipes.filter(recipe =>
+      state.favorites.includes(recipe.id) && Math.random() > 0.5  // Randomized for demo purposes
+    );
+    return { recommendations: recommended };
+  }),
 
 // Create Zustand store
 const useRecipeStore = create<RecipeStore>((set) => ({
