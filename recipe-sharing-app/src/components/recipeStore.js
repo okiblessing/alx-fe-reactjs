@@ -1,5 +1,7 @@
 import {create}from 'zustand';
 
+import create from 'zustand';
+
 const useRecipeStore = create((set) => ({
   recipes: [], // List of all recipes
   searchTerm: '', // Search term input by user
@@ -14,6 +16,8 @@ const useRecipeStore = create((set) => ({
     )
   })),
 }));
+
+export default useRecipeStore;
 
 // Create the Zustand store with explicit typing
 const useRecipeStore = create<RecipeStore>((set) => ({
