@@ -24,7 +24,7 @@ const RegistrationForm = () => {
         <input
           type="text"
           name="username"
-          value={formData.username}  // Correct value prop linked to formData.username
+          value={username}  // Correct value prop linked to formData.username
           onChange={handleChange}
         />
       </div>
@@ -35,7 +35,7 @@ const RegistrationForm = () => {
         <input
           type="email"
           name="email"
-          value={formData.email}  // Correct value prop linked to formData.email
+          value={email}  // Correct value prop linked to formData.email
           onChange={handleChange}
         />
       </div>
@@ -46,7 +46,7 @@ const RegistrationForm = () => {
         <input
           type="password"
           name="password"
-          value={formData.password}  // Correct value prop linked to formData.password
+          value={password}  // Correct value prop linked to formData.password
           onChange={handleChange}
         />
       </div>
