@@ -1,20 +1,20 @@
 // src/components/formikForm.js
+// src/components/formikForm.js
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 const RegistrationForm = () => {
-  // Define validation schema with Yup
+  // Define the Yup validation schema using string().required()
   const validationSchema = Yup.object({
     username: Yup.string()
-      .required('Username is required')          // Ensure username is required
-      .min(3, 'Username must be at least 3 characters long'), // Minimum length for username
+      .required('Username is required'), // Username should be a required string
     email: Yup.string()
-      .email('Invalid email address')           // Validate email format
-      .required('Email is required'),           // Ensure email is required
+      .email('Invalid email address') // Check if the email format is valid
+      .required('Email is required'),   // Email is a required string
     password: Yup.string()
-      .required('Password is required')         // Ensure password is required
-      .min(6, 'Password must be at least 6 characters long'), // Minimum length for password
+      .required('Password is required') // Password should be a required string
+      .min(6, 'Password must be at least 6 characters long'), // Ensure the password has at least 6 characters
   });
 
   // Handle form submission
@@ -27,7 +27,7 @@ const RegistrationForm = () => {
       <h1>Register</h1>
       <Formik
         initialValues={{ username: '', email: '', password: '' }}
-        validationSchema={validationSchema}  // Use Yup validation schema here
+        validationSchema={validationSchema}  // Attach the Yup schema for validation
         onSubmit={handleSubmit}
       >
         {() => (
