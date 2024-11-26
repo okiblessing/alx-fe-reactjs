@@ -17,13 +17,13 @@ const RegistrationForm = () => {
     let validationErrors = {};
 
     // Basic validation for each field
-    if (!formData.username) {
+    if (!username) {
       validationErrors.username = 'Username is required';
     }
-    if (!formData.email) {
+    if (!email) {
       validationErrors.email = 'Email is required';
     }
-    if (!formData.password) {
+    if (!password) {
       validationErrors.password = 'Password is required';
     }
 
