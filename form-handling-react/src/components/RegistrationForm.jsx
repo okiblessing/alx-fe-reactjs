@@ -1,4 +1,4 @@
-// src/components/RegistrationForm.js
+// src/components/RegistrationForm.jsx
 import React, { useState } from 'react';
 
 const RegistrationForm = () => {
@@ -51,39 +51,5 @@ const RegistrationForm = () => {
           type="text"
           id="username"
           name="username"
-          value={formData.username}
-          onChange={handleChange}
-        />
-        {errors.username && <p style={{ color: 'red' }}>{errors.username}</p>}
-      </div>
+          value={formData.username} /
 
-      <div>
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-        {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
-      </div>
-
-      <div>
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-        />
-        {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
-      </div>
-
-      <button type="submit">Register</button>
-    </form>
-  );
-};
-
-export default RegistrationForm;
