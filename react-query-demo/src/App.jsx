@@ -1,6 +1,7 @@
 // src/App.jsx
 import React from 'react';
 import PostsComponent from './components/PostsComponent';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 function App() {
   return (
@@ -10,5 +11,6 @@ function App() {
     </div>
   );
 }
+<ReactQueryDevtools initialIsOpen={false} />
 
 export default App;
