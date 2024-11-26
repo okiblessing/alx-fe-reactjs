@@ -10,6 +10,30 @@ const RegistrationForm = () => {
     setFormData((prevState) => ({ ...prevState, [name]: value }));
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Object to store validation errors
+    let validationErrors = {};
+
+    // Basic validation for each field
+    if (!formData.username) {
+      validationErrors.username = 'Username is required';
+    }
+    if (!formData.email) {
+      validationErrors.email = 'Email is required';
+    }
+    if (!formData.password) {
+      validationErrors.password = 'Password is required';
+    }
+
+    // If there are any validation errors, update the error state
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return; // Stop the form submission if errors exist
+    }
+
+
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
