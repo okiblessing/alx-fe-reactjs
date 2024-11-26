@@ -7,14 +7,14 @@ const RegistrationForm = () => {
   // Define validation schema with Yup
   const validationSchema = Yup.object({
     username: Yup.string()
-      .required('Username is required')
-      .min(3, 'Username must be at least 3 characters long'),
+      .required('Username is required')          // Ensure username is required
+      .min(3, 'Username must be at least 3 characters long'), // Minimum length for username
     email: Yup.string()
-      .email('Invalid email address')
-      .required('Email is required'),
+      .email('Invalid email address')           // Validate email format
+      .required('Email is required'),           // Ensure email is required
     password: Yup.string()
-      .required('Password is required')
-      .min(6, 'Password must be at least 6 characters long'),
+      .required('Password is required')         // Ensure password is required
+      .min(6, 'Password must be at least 6 characters long'), // Minimum length for password
   });
 
   // Handle form submission
@@ -27,7 +27,7 @@ const RegistrationForm = () => {
       <h1>Register</h1>
       <Formik
         initialValues={{ username: '', email: '', password: '' }}
-        validationSchema={validationSchema}
+        validationSchema={validationSchema}  // Use Yup validation schema here
         onSubmit={handleSubmit}
       >
         {() => (
