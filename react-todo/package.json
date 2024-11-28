@@ -1,3 +1,7 @@
+"scripts": {
+  "test": "jest"
+}
+
 {
   "name": "react-todo",
   "private": true,
