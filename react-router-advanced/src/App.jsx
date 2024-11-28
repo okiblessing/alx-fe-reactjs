@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Post from './pages/Post';
 import ProtectedRoute from './components/ProtectedRoute';
+import BlogPost from './pages/BlogPost';  // Import BlogPost component
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
