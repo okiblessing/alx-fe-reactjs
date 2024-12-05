@@ -13,18 +13,8 @@ function AddRecipeForm() {
     steps: "",
   });
 
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Reset errors
-    setErrors({
-      title: "",
-      ingredients: "",
-      steps: "",
-    });
-
-    // Validation checks
+  // Validate function for form fields
+  const validate = () => {
     let valid = true;
     const newErrors = {};
 
@@ -47,14 +37,20 @@ function AddRecipeForm() {
       valid = false;
     }
 
-    // Set validation errors and prevent form submission if invalid
-    if (!valid) {
-      setErrors(newErrors);
-      return;
-    }
+    setErrors(newErrors);
+    return valid;
+  };
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Call validate function to check for errors
+    const isValid = validate();
+    if (!isValid) return; // If validation fails, don't submit the form
 
     // If form is valid, submit data (for now, we just log it)
-    console.log("Form Submitted:", { title, ingredients: ingredientList, steps });
+    console.log("Form Submitted:", { title, ingredients, steps });
 
     // Clear form
     setTitle("");
