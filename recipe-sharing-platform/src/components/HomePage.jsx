@@ -1,44 +1,47 @@
-// src/components/HomePage.jsx
-import React, { useState, useEffect } from 'react';
-import recipeData from '../data.json'; // Import the mock data
+import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
-const HomePage = () => {
-  const [recipes, setRecipes] = useState([]);
+// Sample data structure of recipes
+const recipes = [
+  {
+    id: 1,
+    title: "Spaghetti Carbonara",
+    summary: "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
+    image: "https://via.placeholder.com/150"
+  },
+  {
+    id: 2,
+    title: "Chicken Tikka Masala",
+    summary: "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato-based gravy.",
+    image: "https://via.placeholder.com/150"
+  }
+  // Add more recipes as needed
+];
 
-  useEffect(() => {
-    // Mimicking fetching the data (you can also use fetch or axios for real API calls)
-    setRecipes(recipeData);
-  }, []);
-
+function HomePage() {
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-4xl font-bold mb-6 text-center">Recipe Sharing Platform</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {recipes.map((recipe) => (
-          <div
-            key={recipe.id}
-            className="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl"
-          >
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {recipes.map((recipe) => (
+        <div
+          key={recipe.id}
+          className="border rounded-lg shadow-md overflow-hidden"
+        >
+          {/* Link to navigate to the Recipe Detail page */}
+          <Link to={`/recipe/${recipe.id}`}>
             <img
               src={recipe.image}
               alt={recipe.title}
               className="w-full h-48 object-cover"
             />
             <div className="p-4">
-              <h2 className="text-2xl font-semibold text-gray-800">{recipe.title}</h2>
-              <p className="text-gray-600 mt-2">{recipe.summary}</p>
-              <a
-                href="#"
-                className="mt-4 inline-block text-blue-600 hover:text-blue-800"
-              >
-                View Recipe
-              </a>
+              <h2 className="text-xl font-semibold">{recipe.title}</h2>
+              <p className="text-gray-600">{recipe.summary}</p>
             </div>
-          </div>
-        ))}
-      </div>
+          </Link>
+        </div>
+      ))}
     </div>
   );
-};
+}
 
 export default HomePage;
